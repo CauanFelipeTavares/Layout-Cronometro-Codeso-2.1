@@ -29,6 +29,10 @@ function ConfiguracoesPage(){
         marginBottom: "1.8em"
     }
 
+    const pStyle = {
+        textAlign: "center"
+    }
+
 
 
     async function put(){
@@ -83,7 +87,6 @@ function ConfiguracoesPage(){
     }
 
 
-
     return(
         <>
             <Link to="/">
@@ -115,6 +118,9 @@ function ConfiguracoesPage(){
 
 
             <br></br>
+            <p style={pStyle}>
+                Configurações Atuais:
+            </p>
             <Recepcao/>
         </>
     )
