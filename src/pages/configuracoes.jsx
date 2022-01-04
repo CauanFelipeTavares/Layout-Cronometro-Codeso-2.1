@@ -1,6 +1,5 @@
 import axios from "axios"
 import Recepcao from "../components/Recepcao"
-import Input from "../components/Input"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 

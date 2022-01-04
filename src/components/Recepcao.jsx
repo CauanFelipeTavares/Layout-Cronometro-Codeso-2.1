@@ -15,7 +15,6 @@ function Recepcao(){
     }
 
     const pStyle = {
-      margin: "5px",
       border: "1px solid white",
       margin: "0",
       padding: "4px",

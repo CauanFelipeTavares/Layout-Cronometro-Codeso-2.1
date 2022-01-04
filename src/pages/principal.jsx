@@ -52,7 +52,6 @@ function PrincipalPage(){
     const divStyle = {
         display: "flex",
         justifyContent: "space-evenly"
-        
     }
 
     const [ms, setMs] = useState();
@@ -76,10 +75,9 @@ function PrincipalPage(){
             var quandoVamosNosVerDia = localStorage.getItem("quandoVamosNosVerDia")
             var quandoVamosNosVerMes = localStorage.getItem("quandoVamosNosVerMes")
 
+            var contaDia = quandoVamosNosVerDia - dia
             if(quandoVamosNosVerMes > mes){
-                var contaDia = quandoVamosNosVerDia - dia + (quandoVamosNosVerMes - mes) * 30
-            }else{
-                var contaDia = quandoVamosNosVerDia - dia
+                contaDia = quandoVamosNosVerDia - dia + (quandoVamosNosVerMes - mes) * 30
             }
             
 
