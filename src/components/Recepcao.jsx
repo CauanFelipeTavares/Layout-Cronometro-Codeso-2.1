@@ -1,26 +1,14 @@
 import api from '../services/api'
 import React, { useState, useEffect } from "react"
+import '../styles/recepcao.scss'
 
 
-function Recepcao(){
+function Recepcao(props){
 
     const [hora, setHora] = useState()
     const [dia, setDia] = useState()
     const [mes, setMes] = useState()
 
-    const divStyle = {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    }
-
-    const pStyle = {
-      border: "1px solid white",
-      margin: "0",
-      padding: "4px",
-      maxWidth: "4em",
-      minWidth: "4em"
-    }
 
     useEffect(() => {
       api
@@ -44,10 +32,10 @@ function Recepcao(){
 
 
       return(
-        <div style={divStyle}>
-          <p style={pStyle}>Hora: {hora}</p>
-          <p style={pStyle}>Dia: {dia}</p>
-          <p style={pStyle}>Mês: {mes}</p>
+        <div className="table" style={props.style}>
+          <p className="datas" style={props.style}>Hora: {hora}</p>
+          <p className="datas" style={props.style}>Dia: {dia}</p>
+          <p className="datas" style={props.style}>Mês: {mes}</p>
         </div>
       )
     

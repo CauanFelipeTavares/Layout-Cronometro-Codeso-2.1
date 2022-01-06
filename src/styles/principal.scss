@@ -1,0 +1,49 @@
+main {
+    text-align: center;
+    margin: 5vh 2vw;
+    font-size: 6vw
+}
+
+table {
+    margin: 10vh auto;
+    max-width: 90%;
+    padding: 1rem;
+    border: 1px solid white;
+    border-radius: 10px
+}
+
+.tdStyle {
+    font-size: 4.5vw
+}
+
+.numbertdStyle {
+    font-size: 4.5vw;
+    min-width: 4.5vw;
+    max-width: 4.5vw
+}
+
+.msStyle {
+    font-size: 4.5vw;
+    min-width: 6.75vw;
+    max-width: 6.75vw
+}
+
+a {
+    text-decoration: none
+}
+
+button {
+    display: block;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+    font-size: 2vw;
+    border: 1px solid white;
+    padding: 3px 10px;
+    color: white;
+    background-color: black
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly
+}

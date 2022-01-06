@@ -2,36 +2,13 @@ import axios from "axios"
 import Recepcao from "../components/Recepcao"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import '../styles/configuracoes.scss'
 
 function ConfiguracoesPage(){
 
     const[input1, setInput1] = useState()
     const[input2, setInput2] = useState()
     const[input3, setInput3] = useState()
-
-
-    const buttonStyle = {
-        margin: "1vw",
-        fontSize: "1.2em",
-        cursor: "pointer"
-    }
-
-    const formStyle = {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        marginTop: "15vh"
-    }
-
-    const inputStyle = {
-        marginTop: "2px",
-        marginBottom: "1.8em"
-    }
-
-    const pStyle = {
-        textAlign: "center"
-    }
-
 
 
     async function put(){
@@ -89,35 +66,35 @@ function ConfiguracoesPage(){
     return(
         <>
             <Link to="/">
-                <button style={buttonStyle}>
+                <button >
                     Voltar
                 </button>
             </Link>
 
-            <form onSubmit={SubmitFunc} style={formStyle}>
+            <form onSubmit={SubmitFunc} >
                 <label>
                     Escolha a hora que vamos nos encontrar:
                 </label>
-                <input type="number" onChange={updateInputValue1} style={inputStyle}/>
+                <input type="number" onChange={updateInputValue1} />
                 
                 <label>
                     Escolha o dia que vamos nos encontrar:
                 </label>
-                <input type="number" onChange={updateInputValue2} style={inputStyle}/>
+                <input type="number" onChange={updateInputValue2} />
                 
                 <label>
                 Escolha o mês que vamos nos encontrar:
                 </label>
-                <input type="number" onChange={updateInputValue3} style={inputStyle}/>
+                <input type="number" onChange={updateInputValue3} />
                 
-                <button type="submit" style={buttonStyle}>
+                <button type="submit" >
                     Salvar Configurações
                 </button>
             </form>
 
 
             <br></br>
-            <p style={pStyle}>
+            <p >
                 Configurações Atuais:
             </p>
             <Recepcao/>

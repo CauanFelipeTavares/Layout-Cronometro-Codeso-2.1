@@ -1,58 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Recepcao from '../components/Recepcao';
+import "../styles/principal.scss"
 
 
 function PrincipalPage(){
-
-    const mainStyle = {
-        textAlign: "center",
-        margin: "5vh 2vw",
-        fontSize: "6vw"
-    }
-
-    const tableStyle = {
-        margin: "10vh auto",
-        maxWidth: "90%",
-        padding: "1rem",
-        border: "1px solid white",
-        borderRadius: "10px"
-    }
-
-    const tdStyle = {
-        fontSize: "4.5vw"
-    }
-
-    const numbertdStyle = {
-        fontSize: "4.5vw",
-        minWidth: "4.5vw",
-        maxWidth: "4.5vw"
-    }
-
-    const msStyle = {
-        fontSize: "4.5vw",
-        minWidth: "6.75vw",
-        maxWidth: "6.75vw"
-    }
-
-    const aStyle = {
-        textDecoration: "none"
-    }
-
-    const buttonStyle = {
-        display: "block",
-        margin: "0 auto 0 auto",
-        cursor: "pointer",
-        fontSize: "2vw",
-        border: "1px solid white",
-        padding: "3px 10px",
-        color: "white",
-        backgroundColor: "black"
-    }
-
-    const divStyle = {
-        display: "flex",
-        justifyContent: "space-evenly"
-    }
 
     const [ms, setMs] = useState();
     const [seconds, setSeconds] = useState();
@@ -111,8 +63,6 @@ function PrincipalPage(){
             }
 
 
-
-
             var contaMinuto = 60 - 1 - minuto
             if(contaMinuto < 10){
                 setMinutes('0' + contaMinuto)
@@ -151,38 +101,39 @@ function PrincipalPage(){
 
     return(
         <>
-            <main style={mainStyle}>
+            <main>
                 Quanto tempo falta pra eu ver o meu amor?
             </main>
             
-            <table style={tableStyle}>
-                <tr id="vazio" style={tdStyle}></tr>
+            <table>
+                <tr id="vazio" className="tdStyle"></tr>
                 <tr id="tabela">
-                    <td style={numbertdStyle}> {days} </td>
-                    <td id="diaPluralidade" style={tdStyle}>dias: </td>
-                    <td style={numbertdStyle}> {houers} </td>
-                    <td style={tdStyle}>hrs:</td>
-                    <td style={numbertdStyle}> {minutes} </td>
-                    <td style={tdStyle}>m:</td>
-                    <td style={numbertdStyle}> {seconds} </td>
-                    <td style={tdStyle}>s:</td>  
-                    <td style={msStyle}> {ms} </td>
-                    <td style={tdStyle}>ms</td>
+                    <td className="numbertdStyle"> {days} </td>
+                    <td id="diaPluralidade" className="tdStyle">dias: </td>
+                    <td className="numbertdStyle"> {houers} </td>
+                    <td className="tdStyle">hrs:</td>
+                    <td className="numbertdStyle"> {minutes} </td>
+                    <td className="tdStyle">m:</td>
+                    <td className="numbertdStyle"> {seconds} </td>
+                    <td className="tdStyle">s:</td>  
+                    <td className="msStyle"> {ms} </td>
+                    <td className="tdStyle">ms</td>
                 </tr>
             </table>
 
-            <div style={divStyle}>
-            <Link id="estatistic1" to="/estatisticas" style={aStyle}>
-                <button id="estatistic2" style={buttonStyle}>
+            <div className="buttons">
+            <Link id="estatistic1" to="/estatisticas">
+                <button id="estatistic2">
                     Estatísticas
                 </button>
             </Link>
-            <Link to="/configuracoes" style={aStyle}>
-                <button style={buttonStyle}>
+            <Link to="/configuracoes">
+                <button>
                     Configurações
                 </button>
             </Link>
             </div>
+            <Recepcao style={{display: "none"}}/>
         </>
     )
 }

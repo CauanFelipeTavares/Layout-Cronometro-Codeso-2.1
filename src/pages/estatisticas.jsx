@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import Recepcao from '../components/Recepcao';
+import '../styles/estatisticas.scss'
 
 
 
@@ -9,32 +10,14 @@ function EstatisticasPage(){
     var quandoVamosNosVerHora = localStorage.getItem("quandoVamosNosVerHora")
     var quandoVamosNosVerDia = localStorage.getItem("quandoVamosNosVerDia")
     var quandoVamosNosVerMes = localStorage.getItem("quandoVamosNosVerMes")
+    console.log(quandoVamosNosVerHora)
+    console.log(quandoVamosNosVerDia)
+    console.log(quandoVamosNosVerMes)
 
     const[innerH,setInnerH] = useState()
     const[innerM,setInnerM] = useState()
     const[innerS,setInnerS] = useState()
     const[innerMS,setInnerMS] = useState()
-
-    const buttonStyle = {
-        margin: "1vw",
-        fontSize: "1.2em",
-        cursor: "pointer"
-    }
-
-    const h1Style = {
-        textAlign: "center",
-        fontSize: "4vw",
-        marginBottom: "15vh"
-    }
-
-    const pStyle = {
-        margin: "3vh 1vw",
-        textAlign: "center"
-    }
-
-    const ouStyle = {
-        textAlign: "center"
-    }
 
 
     useEffect(() => {
@@ -75,18 +58,19 @@ function EstatisticasPage(){
     return(
     <>
         <Link to='/'>
-            <button style={buttonStyle}>
+            <button>
                 Voltar
             </button>
         </Link>
-        <h1 style={h1Style}>Faltam exatamente _______ pra gente se ver!!</h1>
-        <p style={pStyle}> {innerH} horas </p>
-        <p style={ouStyle}> ou </p>
-        <p style={pStyle}> {innerM} minutos </p>
-        <p style={ouStyle}> ou </p>
-        <p style={pStyle}> {innerS} segundos </p>
-        <p style={ouStyle}> ou </p>
-        <p style={pStyle}> {innerMS} milissegundos </p>
+        <h1>Faltam exatamente _______ pra gente se ver!!</h1>
+        <p className="pStyle"> {innerH} horas </p>
+        <p className="ouStyle"> ou </p>
+        <p className="pStyle"> {innerM} minutos </p>
+        <p className="ouStyle"> ou </p>
+        <p className="pStyle"> {innerS} segundos </p>
+        <p className="ouStyle"> ou </p>
+        <p className="pStyle"> {innerMS} milissegundos </p>
+        <Recepcao style={{display: "none"}}/>
     </>
     )
 }

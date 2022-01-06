@@ -1,0 +1,21 @@
+button {
+    margin: 1vw;
+    font-size: 1.2em;
+    cursor: pointer
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15vh
+}
+
+input {
+    margin-top: 2px;
+    margin-bottom: 1.8em
+}
+
+p {
+    text-align: center
+}
