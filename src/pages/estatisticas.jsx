@@ -7,6 +7,7 @@ import '../styles/estatisticas.scss'
 
 function EstatisticasPage(){
 
+    var quandoVamosNosVerMinuto = localStorage.getItem("quandoVamosNosVerMinuto")
     var quandoVamosNosVerHora = localStorage.getItem("quandoVamosNosVerHora")
     var quandoVamosNosVerDia = localStorage.getItem("quandoVamosNosVerDia")
     var quandoVamosNosVerMes = localStorage.getItem("quandoVamosNosVerMes")
@@ -32,13 +33,21 @@ function EstatisticasPage(){
             var mes = data.getMonth() + 1
         
             var contaMes = quandoVamosNosVerMes - mes
-            var contaHora = quandoVamosNosVerHora - hora
             var contaDia = quandoVamosNosVerDia - dia
+            var contaHora = quandoVamosNosVerHora - hora
+            var contaMinuto = quandoVamosNosVerMinuto - minuto
         
+            const mesesVSdias = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+            var contaMesVSDias = 0
+            for(let i = 0; i < contaMes; i++){
+                contaMesVSDias = contaMesVSDias + mesesVSdias[i]
+            }
+
         
-            var Ehoras = (contaHora + (contaDia * 24) + (contaMes * 24 * 30) - (minuto/60) - (segundo/60/60)).toFixed(2)
-            var Eminutos = ((contaHora * 60) + (contaDia * 60 * 24) + (contaMes * 60 * 24 * 30) - minuto - (segundo/60)).toFixed(2)
-            var Esegundos = (contaHora * 60 * 60) + (contaDia * 60 * 60 * 24)  + (contaMes * 60 * 60 * 24 * 30) - (minuto * 60) - segundo - (ms/1000)
+            var Ehoras = (contaHora + (contaDia * 24) + (contaMesVSDias * 24 * 30) - (contaMinuto/60) - (segundo/60/60)).toFixed(2)
+            var Eminutos = ((contaHora * 60) + (contaDia * 60 * 24) + (contaMesVSDias * 60 * 24 * 30) - contaMinuto - (segundo/60)).toFixed(2)
+            var Esegundos = (contaHora * 60 * 60) + (contaDia * 60 * 60 * 24)  + (contaMesVSDias * 60 * 60 * 24 * 30) - (contaMinuto * 60) - segundo - (ms/1000)
             var EEsegundos = Esegundos.toFixed(0)
             var Ems = (Esegundos * 1000).toFixed(0)
         

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Recepcao from '../components/Recepcao';
 import "../styles/principal.scss"
 
+//idOficial:  61ca7e9666a93f9f47646679
+//idTeste:  61d68526acf88b6cb8f9f42c
 
 function PrincipalPage(){
 
@@ -23,6 +25,7 @@ function PrincipalPage(){
             var dia = data.getDate()
             var mes = data.getMonth() + 1
 
+            var quandoVamosNosVerMinuto = localStorage.getItem("quandoVamosNosVerMinuto")
             var quandoVamosNosVerHora = localStorage.getItem("quandoVamosNosVerHora")
             var quandoVamosNosVerDia = localStorage.getItem("quandoVamosNosVerDia")
             var quandoVamosNosVerMes = localStorage.getItem("quandoVamosNosVerMes")
@@ -63,8 +66,17 @@ function PrincipalPage(){
             }
 
 
-            var contaMinuto = 60 - 1 - minuto
-            if(contaMinuto < 10){
+            var contaMinuto = quandoVamosNosVerMinuto - 1 - minuto
+            if(contaMinuto < 0){
+                contaHora--
+                contaMinuto = contaMinuto + 60
+                setMinutes(contaMinuto)
+                if(contaHora < 10){
+                    setHouers('0' + contaHora)
+                }else{
+                    setHouers(contaHora)
+                }
+            }else if(contaMinuto < 10){
                 setMinutes('0' + contaMinuto)
             }else{
                 setMinutes(contaMinuto)
