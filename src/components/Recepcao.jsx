@@ -13,7 +13,7 @@ function Recepcao(props){
 
     useEffect(() => {
       api
-        .get("/configTime/Get/61d68526acf88b6cb8f9f42c")
+        .get("/configTime/Get/61ca7e9666a93f9f47646679")
         .then((response) => {
             setMinuto(response.data.config.minuto)
             setHora(response.data.config.hora)

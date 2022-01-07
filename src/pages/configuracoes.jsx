@@ -42,7 +42,7 @@ function ConfiguracoesPage(){
             dia: input2,
             mes: input3
         }
-        const response = await axios.put('https://cronometro-codeso-2-calires.herokuapp.com/configTime/put/61d68526acf88b6cb8f9f42c', article)
+        const response = await axios.put('https://cronometro-codeso-2-calires.herokuapp.com/configTime/put/61ca7e9666a93f9f47646679', article)
         console.log(response.data)
         document.location.reload(true)
         alert("Atualizado com sucesso")
