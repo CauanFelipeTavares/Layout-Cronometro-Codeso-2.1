@@ -12,6 +12,4 @@ Dessa vez há uma API e um banco de dados por trás, sendo possível atualizar o
 
 [Github da API](https://github.com/CauanFelipeTavares/API-Cronometro-Codeso-2.1)
 
-<br></br>
-
 [Site](https://cronometro-codeso-2.vercel.app/)
