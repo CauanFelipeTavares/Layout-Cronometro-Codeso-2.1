@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import '../styles/configuracoes.scss'
 
+
 function ConfiguracoesPage(){
 
     const[input0, setInput0] = useState()
@@ -13,49 +14,44 @@ function ConfiguracoesPage(){
 
 
     async function put(){
-        console.log(input0)
-        console.log(input1)
-        console.log(input2)
-        console.log(input3)
-    if(isNaN(input0) || isNaN(input1) || isNaN(input2) || isNaN(input3)){
-        alert("Há inputs vazios")
-    }else if(input0 < 0){
-        alert("O minuto não pode ser menor que 0")
-    }else if(input1 > 59){
-        alert("O minuto não pode ser maior que 23")
-    }else if(input1 < 0){
-        alert("A hora não pode ser menor que 0")
-    }else if(input1 > 23){
-        alert("A hora não pode ser maior que 23")
-    }else if(input2 < 1){
-        alert("O dia não pode ser menor que 1")
-    }else if(input2 > 31){
-        alert("O dia não pode ser maior que 31")
-    }else if(input3 < 1){
-        alert("O mês não pode ser menor que 1")
-    }else if(input3 > 12){
-        alert("O mês não pode ser maior que 12")
-    }else{
-        var article = {
-            minuto: input0,
-            hora: input1,
-            dia: input2,
-            mes: input3
-        }
-        const response = await axios.put('https://cronometro-codeso-2-calires.herokuapp.com/configTime/put/61ca7e9666a93f9f47646679', article)
-        console.log(response.data)
-        document.location.reload(true)
-        alert("Atualizado com sucesso")
+        if(isNaN(input0) || isNaN(input1) || isNaN(input2) || isNaN(input3)){
+            alert("Há inputs vazios")
+        }else if(input0 < 0){
+            alert("O minuto não pode ser menor que 0")
+        }else if(input1 > 59){
+            alert("O minuto não pode ser maior que 23")
+        }else if(input1 < 0){
+            alert("A hora não pode ser menor que 0")
+        }else if(input1 > 23){
+            alert("A hora não pode ser maior que 23")
+        }else if(input2 < 1){
+            alert("O dia não pode ser menor que 1")
+        }else if(input2 > 31){
+            alert("O dia não pode ser maior que 31")
+        }else if(input3 < 1){
+            alert("O mês não pode ser menor que 1")
+        }else if(input3 > 12){
+            alert("O mês não pode ser maior que 12")
+        }else{
+            var article = {
+                minuto: input0,
+                hora: input1,
+                dia: input2,
+                mes: input3
+            }
+            const response = await axios.put('https://cronometro-codeso-2-calires.herokuapp.com/configTime/put/61d68526acf88b6cb8f9f42c', article)
+            console.log(response.data)
+            document.location.reload(true)
+            alert("Atualizado com sucesso")
         }
     }
-
 
 
     function SubmitFunc(e) {
         e.preventDefault()
         console.log('Você clicou em enviar.')
         put()
-      }
+    }
 
     function updateInputValue0(evt0) {
         setInput0(parseInt(evt0.target.value));
@@ -107,9 +103,8 @@ function ConfiguracoesPage(){
                     Salvar Configurações
                 </button>
             </form>
-
-
             <br></br>
+
             <p >
                 Configurações Atuais:
             </p>

@@ -30,66 +30,16 @@ function PrincipalPage(){
             var quandoVamosNosVerDia = localStorage.getItem("quandoVamosNosVerDia")
             var quandoVamosNosVerMes = localStorage.getItem("quandoVamosNosVerMes")
 
+            //vars
+
             var contaDia = quandoVamosNosVerDia - dia
-            if(quandoVamosNosVerMes > mes){
-                contaDia = quandoVamosNosVerDia - dia + (quandoVamosNosVerMes - mes) * 30
-            }
-            
-
-            var contaHora = quandoVamosNosVerHora - 1 - hora
-            if(contaHora < 0){
-                contaHora = contaHora + 24
-                contaDia--
-                setDays(contaDia)
-                if(contaHora <10){
-                    setHouers('0' + contaHora)
-                }else{
-                    setHouers(contaHora)
-                }
-            }else if(contaHora < 10){
-                setHouers('0' + contaHora)
-            }else{
-                setHouers(contaHora)
-            }
-
-
-            if(contaDia < 10){
-                setDays('0' + contaDia)
-            }else{
-                setDays(contaDia)
-            }
-
-            if(contaDia === 1){
-                document.getElementById('diaPluralidade').innerHTML = "dia:"
-            }else{
-                document.getElementById('diaPluralidade').innerHTML = "dias:"
-            }
-
-
-            var contaMinuto = quandoVamosNosVerMinuto - 1 - minuto
-            if(contaMinuto < 0){
-                contaHora--
-                contaMinuto = contaMinuto + 60
-                setMinutes(contaMinuto)
-                if(contaHora < 10){
-                    setHouers('0' + contaHora)
-                }else{
-                    setHouers(contaHora)
-                }
-            }else if(contaMinuto < 10){
-                setMinutes('0' + contaMinuto)
-            }else{
-                setMinutes(contaMinuto)
-            }
-
+            var contaHora = quandoVamosNosVerHora - hora
+            var contaMinuto = quandoVamosNosVerMinuto - minuto
             var contaSegundo = 60 - 1 - segundo
-            if(contaSegundo < 10){
-                setSeconds('0' + contaSegundo)
-            }else{
-                setSeconds(contaSegundo)
-            }
-
             var contaMs = 1000 - 1 - ms
+
+            //ms
+
             if(contaMs < 100){
                 setMs('0' + contaMs)
             }else if(contaMs <10){
@@ -99,10 +49,83 @@ function PrincipalPage(){
                 setMs(contaMs)
             }
 
+            //segundos
+
+            if(contaSegundo < 10){
+                setSeconds('0' + contaSegundo)
+            }else{
+                setSeconds(contaSegundo)
+            }
+
+            //minutos
+
+            if(contaMinuto < 0){
+                contaHora--
+                contaMinuto = contaMinuto + 60
+                setMinutes(contaMinuto)
+                if(contaHora < 10){
+                    setHouers('0' + contaHora)
+                    console.log('6:' + contaHora)
+                }else{
+                    setHouers(contaHora)
+                    console.log('7:' + contaHora)
+                }
+            }else if(contaMinuto < 10){
+                setMinutes('0' + contaMinuto)
+            }else{
+                setMinutes(contaMinuto)
+            }
+
+            //horas
+
+            if(contaHora < 0){
+                contaHora = contaHora + 24
+                contaDia--
+                console.log('1:' + contaHora)
+                setDays(contaDia)
+                if(contaHora <10){
+                    setHouers('0:' + contaHora)
+                    console.log('2:' + contaHora)
+                }else{
+                    setHouers(contaHora)
+                    console.log('3:' + contaHora)
+                }
+            }else if(contaHora < 10){
+                setHouers('0' + contaHora)
+                console.log('4:' + contaHora)
+            }else{
+                setHouers(contaHora)
+                console.log('5:' + contaHora)
+            }
+
+            //dias
+
+            if(contaDia < 10){
+                setDays('0' + contaDia)
+            }else{
+                setDays(contaDia)
+            }
+
+            //mes
+
+            if(quandoVamosNosVerMes > mes){
+                contaDia = quandoVamosNosVerDia - dia + (quandoVamosNosVerMes - mes) * 30
+                setDays(contaDia)
+            }
+
+            //pluralidade
+
+            if(contaDia === 1){
+                document.getElementById('diaPluralidade').innerHTML = "dia:"
+            }else{
+                document.getElementById('diaPluralidade').innerHTML = "dias:"
+            }   
+
+            //Cronometro zerado
 
             if(contaDia < 0){
                 document.getElementById("tabela").style.display = "none"
-                document.getElementById("vazio").innerHTML = "Vi mi amore, até o proximo encontro s2"
+                document.getElementById("vazio").innerHTML = "FINALMENTE VI MI AMORE <3"
                 document.getElementById("estatistic1").style.display = "none"
                 document.getElementById("estatistic2").style.display = "none"
             }
