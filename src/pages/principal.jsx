@@ -63,24 +63,19 @@ function PrincipalPage(){
                 contaHora--
                 contaMinuto = contaMinuto + 60
                 setMinutes(contaMinuto)
-                console.log(contaMinuto)
                 if(contaHora < 10){
                     setHouers('0' + contaHora)
                 }else{
                     setHouers(contaHora)
                 }if(contaMinuto < 10){
                     setMinutes('0' + contaMinuto)
-                    console.log(contaMinuto)
                 }else{
                     setMinutes(contaMinuto)
-                    console.log(contaMinuto)
                 }
             }else if(contaMinuto < 10){
                 setMinutes('0' + contaMinuto)
-                console.log(contaMinuto)
             }else{
                 setMinutes(contaMinuto)
-                console.log(contaMinuto)
             }
 
             //horas
