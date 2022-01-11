@@ -63,17 +63,24 @@ function PrincipalPage(){
                 contaHora--
                 contaMinuto = contaMinuto + 60
                 setMinutes(contaMinuto)
+                console.log(contaMinuto)
                 if(contaHora < 10){
                     setHouers('0' + contaHora)
-                    console.log('6:' + contaHora)
                 }else{
                     setHouers(contaHora)
-                    console.log('7:' + contaHora)
+                }if(contaMinuto < 10){
+                    setMinutes('0' + contaMinuto)
+                    console.log(contaMinuto)
+                }else{
+                    setMinutes(contaMinuto)
+                    console.log(contaMinuto)
                 }
             }else if(contaMinuto < 10){
                 setMinutes('0' + contaMinuto)
+                console.log(contaMinuto)
             }else{
                 setMinutes(contaMinuto)
+                console.log(contaMinuto)
             }
 
             //horas
@@ -81,21 +88,16 @@ function PrincipalPage(){
             if(contaHora < 0){
                 contaHora = contaHora + 24
                 contaDia--
-                console.log('1:' + contaHora)
                 setDays(contaDia)
                 if(contaHora <10){
                     setHouers('0:' + contaHora)
-                    console.log('2:' + contaHora)
                 }else{
                     setHouers(contaHora)
-                    console.log('3:' + contaHora)
                 }
             }else if(contaHora < 10){
                 setHouers('0' + contaHora)
-                console.log('4:' + contaHora)
             }else{
                 setHouers(contaHora)
-                console.log('5:' + contaHora)
             }
 
             //dias
