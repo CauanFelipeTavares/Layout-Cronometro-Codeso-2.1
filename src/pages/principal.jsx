@@ -108,6 +108,11 @@ function PrincipalPage(){
             if(quandoVamosNosVerMes > mes){
                 contaDia = quandoVamosNosVerDia - dia + (quandoVamosNosVerMes - mes) * 30
                 setDays(contaDia)
+                if(contaDia < 10){
+                    setDays('0' + contaDia)
+                }else{
+                    setDays(contaDia)
+                }
             }
 
             //pluralidade
